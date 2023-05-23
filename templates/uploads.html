@@ -1,0 +1,53 @@
+    <!DOCTYPE html>
+    <html>
+     
+    <head>
+        <title>Flask</title>
+    </head>
+     
+    <body>
+    
+    <h2>File Upload</h2>
+    
+    {% block body %}
+    
+    {% if current_user.is_authenticated %}
+        <h1>You are logged in</h1>
+        <a href="/logout">Logout</a>
+        {% else %}
+        <nav>
+          <ul>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Create account</a></li>
+          </ul>
+        </nav>
+        {% endif %}
+    
+        <h1>Uploads</h1>
+    <div>
+        {% for user in users %}
+            <div>
+                <p><b>#{{ user.id }}</b></p>
+                <b>
+                    <p>
+                        <a href="#">
+                            {{ user.username }}
+                        </a>
+                    </p>
+                </b>
+                <div>
+                    <p>{{ user.files }}</p>
+                </div>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+        
+     
+     
+    {% endblock %}
+     
+     
+    </body>
+     
+    </html>

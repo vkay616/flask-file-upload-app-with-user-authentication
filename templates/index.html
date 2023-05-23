@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Flask</title>
+</head>
+ 
+<body>
+
+<h2>File Upload</h2>
+
+{% block body %}
+
+{% if current_user.is_authenticated %}
+    <h1>You are logged in</h1>
+    <a href="/logout">Logout</a>
+    {% else %}
+    <nav>
+      <ul>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Create account</a></li>
+      </ul>
+    </nav>
+    {% endif %}
+
+ 
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+  </form>
+ 
+ 
+{% endblock %}
+ 
+ 
+</body>
+ 
+</html>
